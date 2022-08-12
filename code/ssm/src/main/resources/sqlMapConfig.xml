@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--loading properties file-->
+    <properties resource="jdbc.properties"></properties>
+
+<!--alias-->
+    <typeAliases>
+        <typeAlias type="com.ertiam.domain.Account" alias="account"></typeAlias>
+        <typeAlias type="com.ertiam.domain.Course" alias="course"></typeAlias>
+        <typeAlias type="com.ertiam.domain.StudentInformation" alias="stuInfo"></typeAlias>
+        <typeAlias type="com.ertiam.domain.CourseSelect" alias="courseSelect"></typeAlias>
+        <typeAlias type="com.ertiam.domain.PreRequire" alias="preRequire"></typeAlias>
+    </typeAliases>
+
+<!--environments-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+<!--loading mapping-->
+    <mappers>
+        <mapper resource="com.ertiam.mapper/AccountMapper.xml"></mapper>
+    </mappers>
+
+</configuration>
